@@ -1,0 +1,341 @@
+:root {
+  --primary-color : #c72727;
+  --secondary-color : #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+  --max-width: 1100px;
+}
+
+/* กำหนดสีให้แต่ละข่าว */
+.category {
+  --sports-color : #f99500;
+  --ent-color: #a66bbe;
+  --tech-color: #009cff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.5;
+  background:var(--light-color);
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h3, h6 {
+  font-family: 'Staatliches', cursive;
+  margin-bottom: .55rem;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+/*=============================================
+=            Utility            =
+=============================================*/
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+.category {
+  /* จะทำให้เป็นกล่องข้อความ */
+  display: inline-block;
+  color: #fff;
+  font-size: 0.55rem;
+  /* ทำให้ข้อความตัวอักษรใหญ่เสมอ */
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.5rem;
+  border-radius: 15px;
+}
+
+.category-sports { background: var(--sports-color); }
+.category-ent { background: var(--ent-color); }
+.category-tech { background: var(--tech-color); }
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: var(--dark-color);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-light { background: var(--light-color); }
+.btn-primary { background: var(--primary-color); }
+.btn-secondary { background: var(--secondary-color); }
+
+.btn-block {
+  /* button ใหญ่ กว้างสุด */
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.bg-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+/* ปรับให้เป็นสีขาว */
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark a, 
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary a, 
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary a {
+  color : #fff;
+}
+
+.py-1 { padding : 1.5rem 0; }
+.py-2 { padding : 2rem 0; }
+.py-3 { padding : 3rem 0; }
+
+.p-1 { padding: 1.5rem; }
+.p-2 { padding: 2rem; }
+.p-3 { padding: 3rem; }
+
+.list li {
+  padding: 0.5rem 0;
+  border-bottom: #555 dotted 1px;
+  width: 90%;
+}
+
+.list li a:hover  {
+  color: var(--primary-color) !important;
+}
+
+/*  Inner page grid container */
+.page-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  margin: 1rem;
+  grid-gap: 1.5rem;
+}
+
+.page-container > *:first-child {
+  /* ทำให้กล่องแรกยาวลงมา */
+  grid-row: 1/span 3;
+}
+
+.l-heading { font-size: 3rem; }
+/*=====  End of Utility  ======*/
+
+/* Navigation */
+#main-nav {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#main-nav .container {
+  display: grid;
+  grid-template-columns: 6fr 3fr 2fr;
+  padding: 1rem;
+  /* vertical */
+  align-items: center;
+}
+
+#main-nav .logo {
+  width: 180px;
+}
+
+#main-nav ul {
+  /* อยู่ชิดขวาสุด */
+  justify-self: end;
+  /* เรียงแนวนอน */
+  display: flex;
+}
+
+#main-nav ul li a {
+  padding: 0.75rem;
+  font-weight: bold;
+}
+
+#main-nav ul li a.current {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+#main-nav ul li a:hover {
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+
+#main-nav .social {
+  /* ? จัดเรียงตัวเอง ไม่ใช่ child */
+  justify-self: center;
+}
+
+#main-nav .social i {
+  color: #777;
+  margin-right: 0.5rem;
+}
+
+/* Showcase */
+#showcase {
+  color: #fff;
+  /* bg ที่เป็นรูปภาพเราจะใช้ showcase::before */
+  background: #333;
+  padding: 2rem;
+  /* before จะใช้ position : absolute จำไว้ว่า absolute จะอยู่ใน relative เสมอ */
+  position: relative;
+}
+
+#showcase:before {
+  content: '';
+  background: url('../img/featured.jpg') center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+} 
+
+#showcase .showcase-container {
+  display: grid;
+  /* ทำให้ grid มี 2 ช่วง showcase-content อันนึง กับ เปล่าๆ */
+  grid-template-columns: repeat(2,1fr);
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+#showcase .showcase-content {
+  /* ใช้ .showcase-content เพราะว่า wrap text ทั้งหมดอยู่ */
+  z-index: 1;
+}
+
+#showcase .showcase-content p {
+  margin-bottom: 1rem;
+}
+
+/* Home Articles */
+#home-articles .articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  /* เลือก child ที่เป็นอันแรก */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  /* ขยาย grid อันแรกให้กว้าง 2 ช่อง */
+  grid-column: 1 / span 2;
+  /* align vertical */
+  align-items: center;
+}
+
+#home-articles .articles-container > *:last-child { 
+  /* กำหนดให้กล่องสุดท้ายอยู่ row 3 column 2 */
+  /* line row start | column start | row end | column end */
+  /* grid-area : 3 / 2 / 3 / span 2; */
+  /* ! เริ่มที่ line column 2 ขยายไป 2 ช่อง */
+  grid-column: 2 / span 2;
+}
+
+/* Article .meta */
+/* ? ข้อแตกต่างระหว่าง Grid กับ flex คือ
+ * Grid จะใช้เรียง 2 dimension
+ * Flex จะเรียงแบบ inline ง่ายๆ เช่น navbar  */
+#article .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 0.5rem;
+}
+
+#article .meta .category {
+  margin-top: 0.4rem;
+}
+
+/* Footer */
+#main-footer {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+#main-footer img {
+  width: 150px;;
+}
+
+#main-footer a {
+  color: #fff;
+}
+
+#main-footer .footer-container {
+  display : grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 1.5rem;
+}
+
+#main-footer .footer-container > *:last-child {
+  /* เริ่มที่ 1 ขยายไป 4 ช่อง */
+  grid-column: 1 / span 4 ;
+  background: #444;
+  padding: .5rem;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+#main-footer .footer-container input[type='email'] {
+  /* ! attribute selector */
+  width: 90%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#main-footer .footer-container input[type='submit'] {
+  width: 90%;
+} 

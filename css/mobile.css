@@ -1,0 +1,85 @@
+/* Navigation */
+#main-nav .social {
+    display: none;
+}
+
+#main-nav .container {
+  grid-template-columns: 1fr;
+  grid-gap: 1.2rem;
+}
+
+#main-nav ul, 
+#main-nav .logo {
+  justify-self: center;
+}
+
+#main-nav ul a {
+  padding: 0.5rem;
+}
+
+/* Home Articles */
+#home-articles .articles-container {
+  /* ปรับเป็น 2 ช่อง */
+  grid-template-columns: repeat(2,1fr);
+}
+
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  /* clear span */
+  grid-template-columns: 1fr;
+  grid-column: 1;
+}
+
+@media (max-width : 600px) {
+  /* Stck Grid Items */
+  #showcase .showcase-container,
+  #home-articles .articles-container,
+  #main-footer .footer-container {
+    /* footer-container ไม่ไปด้วยเพราะว่ามี last-child เป็นแนวยาว */
+    grid-template-columns: 1fr;
+  }
+
+  #main-footer .footer-container > *:last-child {
+    /* ! อย่าลืม clear span */
+    grid-column: 1;
+  }
+  
+
+  #main-footer .footer-container > * {
+    border-bottom: #444 dotted 1px;
+    padding-bottom: 1rem;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+
+  #main-footer .footer-container > *:last-child,
+  #main-footer .footer-container > *:nth-child(3),
+  #main-footer .footer-container > *:nth-child(4) {
+    /* ลบเส้นแบ่ง footer 
+     * หรือจะเลือกเฉพาะ nth-child ที่จะแสดง border ก็ได้ */
+    border: none;
+  }
+
+  /* About & Article */
+  .page-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .page-container > .card > p {
+    text-align: left;
+  }
+  
+  .page-container > *:first-child {
+    /* ! clear span */
+    grid-row: 1;
+  }
+
+  #article .meta {
+    display: block;
+  }
+
+  .l-heading {
+    font-size: 2rem;
+  }
+}
